@@ -1,3 +1,6 @@
+chat.db
+node_modules
+package-lock.json
 # OS X
 .DS_Store*
 Icon?

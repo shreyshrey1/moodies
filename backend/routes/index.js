@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/upload', function(req, res, next) {
+  console.log(req.files);
+});
+
 module.exports = router;
