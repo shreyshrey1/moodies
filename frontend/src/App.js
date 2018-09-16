@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VictoryLine } from 'victory';
+import { VictoryLine, VictoryChart, VictoryTheme } from 'victory';
 import './App.css';
 
 const data = [
@@ -45,10 +45,18 @@ class App extends Component {
         <p className="App-intro">
           To get started, upload your iMessages file!
         </p>
-        {this.state.loading ? <div>Loading</div> : <VictoryLine
-          interpolation="natural"
-          data={this.state.data["documents"].map(el => {return {x: el["data"], y: el["score"]}})}
-        />}
+        {this.state.loading ? <div>Loading</div> : 
+        <VictoryChart theme={VictoryTheme.material}>
+          <VictoryLine
+            style={{
+              data: { stroke: "#c43a31" },
+              parent: { border: "1px solid #ccc"}
+            }}
+            interpolation="natural"
+            data={this.state.data["documents"].map(el => {return {x: el["data"], y: el["score"]}})}
+          />
+        </VictoryChart>
+        }
       </div>
     );
   }
