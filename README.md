@@ -3,8 +3,8 @@
 Mood/sentiment analyzer and visualization for iMessage content.
 
 ## Tools
-React - frontend
-Express -backend
+React - frontend <br/>
+Express -backend <br/>
 Azure - text classifier
 
 ## Installation
