@@ -8,7 +8,7 @@ Express -backend
 Azure - text classifier
 
 ## Installation
-Node.js - then run: `npm install` in both the frontend and backend folder
+Node.js - then run: `npm install` in both the frontend and backend folder.
 Then, download all your messages from your Apple account and put the chat.db file in the backend folder
 
 ## Start App
