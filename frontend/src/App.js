@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VictoryBar } from 'victory';
+import { VictoryLine } from 'victory';
 import './App.css';
 
 const data = [
@@ -8,6 +8,15 @@ const data = [
   {quarter: 3, earnings: 14250},
   {quarter: 4, earnings: 19000}
 ];
+
+var request = require('request');
+
+request('http://localhost:8888/azure', function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  console.log('body:', body); // Print the HTML for the Google homepage.
+});
+
 
 class App extends Component {
   render() {
@@ -19,10 +28,15 @@ class App extends Component {
         <p className="App-intro">
           To get started, upload your iMessages file!
         </p>
-        <VictoryBar
-          data = {data}
-          x="quarter"
-          y="earnings"
+        <VictoryLine
+          interpolation="natural"
+          data={[
+            { x: 1, y: 2 },
+            { x: 2, y: 3 },
+            { x: 3, y: 5 },
+            { x: 4, y: 4 },
+            { x: 5, y: 6 }
+          ]}
         />
       </div>
     );
