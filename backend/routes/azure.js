@@ -60,8 +60,5 @@ router.get('/', async(req, res, next) => {
 });
 
 
-// Replace with actual code
-var texts = ['Hello world. This is some input that I love.', 'Hello, what a day.', 'Traffic is terrible! I hate you!'];
-
 
 module.exports = router;
