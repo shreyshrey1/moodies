@@ -2,7 +2,7 @@
 
 var https = require('https');
 
-var accessKey = '4218174ec34d497091344c8ab42c0587';
+var accessKey = 'e15e9f81cc4e4aa18886157edbae822c';
 var results = null;
 
 let uri = 'eastus.api.cognitive.microsoft.com';

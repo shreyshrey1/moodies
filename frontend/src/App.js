@@ -11,14 +11,31 @@ const data = [
 
 var request = require('request');
 
-request('http://localhost:8888/azure', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', body); // Print the HTML for the Google homepage.
-});
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {},
+      loading: true
+    }
+
+  }
+  async componentDidMount() {
+    return await fetch('http://localhost:8888/users/gettexts').then(res => res.json().then(
+      json => {
+        this.setState({
+          data: json,
+          loading: false
+        })
+      }
+    )
+    )}
+
+  getData = () => {
+    return fetch('http://localhost:8888/users/gettexts').then(res => res.json())
+  }
   render() {
     return (
       <div className="App">
@@ -28,16 +45,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, upload your iMessages file!
         </p>
-        <VictoryLine
+        {this.state.loading ? <div>Loading</div> : <VictoryLine
           interpolation="natural"
-          data={[
-            { x: 1, y: 2 },
-            { x: 2, y: 3 },
-            { x: 3, y: 5 },
-            { x: 4, y: 4 },
-            { x: 5, y: 6 }
-          ]}
-        />
+          data={this.state.data["documents"].map(el => {return {x: el["data"], y: el["score"]}})}
+        />}
       </div>
     );
   }
